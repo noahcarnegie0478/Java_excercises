@@ -1,0 +1,11 @@
+# User's own exercise images (data source, not code) — ignore all changes
+# so adding/removing/replacing files in exercise/ never shows up in git.
+exercise/*
+!exercise/.gitkeep
+
+#claude and readme ignore
+CLAUDE.md
+README.md
+
+# OS cruft
+.DS_Store
