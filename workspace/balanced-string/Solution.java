@@ -34,6 +34,7 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(String S) {
+        System.out.println("testing git");
         throw new UnsupportedOperationException("TODO: implement");
     }
 }
