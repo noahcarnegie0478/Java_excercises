@@ -49,6 +49,24 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+            int count = 0;
+            // keep counting between the index, if current > int.length -1 => return
+            boolean[] checked = new boolean[A.length];
+            int current = 0;
+
+
+            while (current < A.length && current >=0) {
+                
+                if (checked[current] != false) {return -1;}
+                int next = current + A[current];
+                checked[current] = true;
+                current = next;
+                count++;
+            }
+
+            return count;
+
+
+        // throw new UnsupportedOperationException("TODO: implement");
     }
 }
