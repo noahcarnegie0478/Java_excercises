@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * TASK: Balanced String
  * Source image: exercise/m-20-BalancedString.png
@@ -34,7 +38,29 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(String S) {
-        System.out.println("testing git 4");
-        throw new UnsupportedOperationException("TODO: implement");
+        Set<Character> capitalLetter = new HashSet<>();
+        int current = 0;
+        int max = -1;
+        // loop through the s
+        for (char c : S.toCharArray()) {
+            // System.out.println(c);
+            Character currentChar = Character.toLowerCase(c);
+            if (Character.isUpperCase(c) && !capitalLetter.contains(currentChar)) {
+                capitalLetter.add(currentChar);
+            }
+        }
+        for (char c : S.toCharArray()) {
+            // check if capital is exsited or not, if yes count, if not, reset count and move on
+            Character currentChar = Character.toLowerCase(c);
+            if (capitalLetter.contains(currentChar)) {
+                current++;
+            }
+            else {
+                current = 0;
+            }
+            max = Math.max(max, current);
+        }
+        return max <= 1 ? -1 : max ;
+
     }
 }
