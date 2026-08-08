@@ -52,6 +52,17 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        if (A.length <= 1 ) return A.length;
+        int count = 0;
+        int current = 0;
+        
+        while (current < A.length -1 && count < A.length) {
+            if (current == -1) {return count+1;}
+            int next = A[current];
+            count++;
+            current = next;
+        }
+        return count;
+        // throw new UnsupportedOperationException("TODO: implement");
     }
 }
