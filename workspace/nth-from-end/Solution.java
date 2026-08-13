@@ -38,6 +38,20 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(IntList L, int M) {
-        throw new UnsupportedOperationException("TODO: implement");
+        if (L == null) return -1;
+
+        IntList slow = L;
+        IntList fast = L;
+
+        for (int i = 0 ; i < M; i++) {
+            if (fast == null && M - i > 0) return -1;
+            fast = fast.next;
+        }
+        while(fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        return  slow.value;
     }
 }
