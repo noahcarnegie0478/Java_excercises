@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * TASK: Kth Smallest Integer in BST
  * Source image: exercise/trees/Smallest Integer.png
@@ -59,6 +62,24 @@ public class Solution {
     // Cài đặt hàm này. Không cần sửa gì khác.
 
     public int solution(TreeNode root, int k) {
-        throw new UnsupportedOperationException("TODO: implement");
+        if (root == null) return -1;
+        List<Integer> result = new ArrayList<>();
+        // call the recursive function
+        addToArray(root, result);
+        System.out.println(result);
+        return result.get(k-1);
+        
+
+        //add the node into the list by the order.  
+        // if null ignore 
+        // and then return the k-1 order in the list
+
+    }
+
+    private void addToArray(TreeNode root, List<Integer> numbers) {
+        if (root == null) return;
+        addToArray(root.left, numbers);
+        addToArray(root.right, numbers);
+        numbers.add(root.val);
     }
 }
