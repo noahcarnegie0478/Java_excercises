@@ -31,6 +31,10 @@
  * magnitude poles. The function should return -1 if array A does not have
  * a magnitude pole.
  *
+ * 
+ * 
+ * !n
+ * [4,2,2,3,1,4,7,8,6,9]
  * For example, given array A consisting of ten elements such that:
  *     A[0] = 4
  *     A[1] = 2
@@ -73,14 +77,13 @@ public class Solution {
        for (int i = A.length -1; i <=0 ; i--) {
         // go straight find max
         min[i] = Math.min(min[i+1], min[i]);
-
        }
 
        // compare
        for (int i = 0; i <= A.length -1 ; i++) {
-            if (i == 0 && A[i] <= min[i])  { System.out.println("result is: " + A[i]);;return A[i];}
-            else if (i == A.length -1 && A[i] >= max[i] ) { System.out.println("result is: " + A[i]);;return A[i];}
-            else if (A[i] >= max[i] && A[i] <= min[i] ) { System.out.println("result is: " + A[i]);;return A[i];}
+            if (i == 0 && A[i] <= min[i])  { System.out.println("result is: " + A[i]);;return i;}
+            else if (i == A.length -1 && A[i] >= max[i] ) { System.out.println("result is: " + A[i]);;return i;}
+            else if (A[i] >= max[i] && A[i] <= min[i] ) { System.out.println("result is: " + A[i]);;return i;}
        }
        return result;
     }
