@@ -29,6 +29,13 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        int[] coins = new int[2];
+        
+        for (int i : A) {
+            if (i == 0) coins[0]++;
+            else coins[1]++;
+        }
+
+        return Math.min(coins[0], coins[1]);
     }
 }
