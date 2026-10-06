@@ -31,6 +31,14 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        //condition 1 x >=10 && x <= 99
+        //condition 2 x >=-99 && x <=-10
+        int sum = 0;
+
+        for (int x : A ) {
+            if ( x >=10 && x <= 99 || x >=-99 && x <=-10 ) sum += x;
+            
+        }
+        return sum;
     }
 }
