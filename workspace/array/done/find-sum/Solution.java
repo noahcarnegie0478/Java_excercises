@@ -28,6 +28,8 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        int sum = 0; 
+        for (int i : A ) sum+= i;
+        return sum;
     }
 }
