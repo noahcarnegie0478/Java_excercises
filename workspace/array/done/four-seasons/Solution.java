@@ -47,6 +47,42 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public String solution(int[] T) {
-        throw new UnsupportedOperationException("TODO: implement");
+
+        // we have four season: "WINTER" | "SPRING" | "SUMMER" | "AUTUMN" 
+        // two pointer 
+        // start of the season 
+        //end of the season 
+        //gap between
+        //max gap
+        if (T.length <= 3) return "WINTER";
+        int evenGap = T.length /4;
+        int start = 0; 
+        int end = evenGap -1;
+        int[] max = new int[4];
+        int result = 0;
+        int pointer = 0;
+        while (pointer <4 ) {
+            int minSub = T[start];
+            int maxSub = T[start];
+
+            for (int i = start ; i <= end; i++ )  {
+                minSub = Math.min(minSub, T[i]);
+                maxSub = Math.max(T[i], maxSub);
+            }
+            int res =  maxSub - minSub;
+            max[pointer] = res;
+            start = end + 1;
+            end = end + evenGap;
+            pointer++;
+        }
+
+        for (int i = 0; i < max.length; i++) {
+            result =max[result] > max[i] ? result : i;
+            System.out.println("result of index" + i + " is : " + " " + max[i]);
+           
+        }
+        return result == 0 ? "WINTER" : result == 1 ? "SPRING" : result == 2 ? "SUMMER" : "AUTUMN"; 
+
+
     }
 }
