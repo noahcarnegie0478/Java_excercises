@@ -40,6 +40,18 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        if (A.length == 0) return 0;
+        int min =A[0];
+        int max = min;
+         for (int i : A) {
+            min = Math.min(min, i);
+            max = Math.max(max, i);
+         }
+        if (max - min == 0) return 0;
+        if (max - min == 1) return -1;
+        return (max + min) / 2 - min;
+
+        // if they just different 1 number, -> then return -1
+
     }
 }

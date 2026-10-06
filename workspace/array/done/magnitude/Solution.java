@@ -55,6 +55,33 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+       // current > max ben left < min ben right
+       if (A.length ==0) return -1;
+       if (A.length == 1) return 0;
+       int[] max = new int[A.length];
+       int[] min = new int[A.length];
+       int result = -1;
+       max[0] = A[0];
+       min[A.length -1] = A[A.length -1];
+       
+
+       for (int i = 1; i < A.length ; i++) {
+        // go straight find max
+        max[i] = Math.max(max[i-1], max[i]);
+
+       }
+       for (int i = A.length -1; i <=0 ; i--) {
+        // go straight find max
+        min[i] = Math.min(min[i+1], min[i]);
+
+       }
+
+       // compare
+       for (int i = 0; i <= A.length -1 ; i++) {
+            if (i == 0 && A[i] <= min[i])  { System.out.println("result is: " + A[i]);;return A[i];}
+            else if (i == A.length -1 && A[i] >= max[i] ) { System.out.println("result is: " + A[i]);;return A[i];}
+            else if (A[i] >= max[i] && A[i] <= min[i] ) { System.out.println("result is: " + A[i]);;return A[i];}
+       }
+       return result;
     }
 }
