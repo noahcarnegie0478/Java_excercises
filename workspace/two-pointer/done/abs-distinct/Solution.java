@@ -43,6 +43,22 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        //checked
+
+        int max = Math.abs(A[0]);
+        int count = 0;
+        for (int i : A) max = Math.max(max, Math.abs(i));
+        boolean[] nEl = new boolean[(max != 0 ? Math.abs(max) : A.length) + 1];
+
+        for (int i = 0; i < A.length; i++) {
+            int num = Math.abs(A[i]);
+            nEl[num] = true;
+        }
+
+        for (boolean cur : nEl) count += cur == true ? 1 : 0;
+        return count;
+
+
+
     }
 }
