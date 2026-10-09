@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * TASK: CountDistinctSlices
  * Source image: exercise/caterpillar-two-pointers -special/e-40-CountDistinctSlices.png
@@ -48,6 +50,21 @@ public class Solution {
     // Implement this method. Nothing else needs to change.
 
     public int solution(int M, int[] A) {
-        throw new UnsupportedOperationException("TODO: implement");
+        int[] lastSeen = new int[M + 1];
+        Arrays.fill(lastSeen, -1);
+
+        long sum = 0;
+        int left = 0;
+        for (int right = 0; right < A.length; right++) {
+            int value = A[right];
+
+            if (lastSeen[value] >= left) {
+                left = lastSeen[value ]+ 1;
+            }
+            sum += (right -left) +1;
+            lastSeen[value] = right;
+            if (sum > 1_000_000_000L) return 1_000_000_000;
+        }
+        return (int) sum;
     }
 }
